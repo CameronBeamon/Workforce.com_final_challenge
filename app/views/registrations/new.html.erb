@@ -1,0 +1,39 @@
+<%
+=begin%>
+ # <h1>Login</h1>
+
+# <div>
+# <label>Email</label>
+# <input/>
+# </div>
+
+# <div>
+# <label>Password</label>
+# <input/>
+# </div>
+# <% button_to "" %> 
+<%
+=end%>
+
+<%= form_with model: @user, url: login_path do |form| %>
+  <div>
+   <p>Name</p>
+  <%= form.text_field :name %>
+  </div>
+   <div>
+   <p>Email</p>
+  <%= form.text_field :email_address %>
+  </div>
+  <div>
+  <p>Password</p>
+  <%= form.password_field :password %>
+  </div>
+  <div>
+  <p>Password Confirmation</p>
+  <%= form.password_field :password_confirmation %> 
+  </div>
+
+  <div>
+  <%= form.submit%>
+  </div>
+<%end %>

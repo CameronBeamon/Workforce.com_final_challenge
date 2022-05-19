@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  start: 2022-05-18 20:31:59
+  finish: 2022-05-18 20:31:59
+  break_length: 1
+
+two:
+  user_id: 1
+  start: 2022-05-18 20:31:59
+  finish: 2022-05-18 20:31:59
+  break_length: 1
