@@ -10,4 +10,9 @@ class SessionsController < ApplicationController
       flash[:alert] = "Invalid email or password"
     end
   end
+  
+  def delete
+    session[:user_id] = nil
+    redirect_to root_path, notice: "Logged Out"
+  end
 end
