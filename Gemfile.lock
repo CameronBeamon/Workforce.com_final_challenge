@@ -196,6 +196,8 @@ GEM
       railties (>= 6.0.0)
     strscan (3.0.3)
     thor (1.2.1)
+    time_difference (0.6.0.pre.activesupport42)
+      activesupport
     timeout (0.2.0)
     turbo-rails (1.0.1)
       actionpack (>= 6.0.0)
@@ -239,6 +241,7 @@ DEPENDENCIES
   sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails
+  time_difference (~> 0.6.0.pre.activesupport42)
   turbo-rails
   tzinfo-data
   web-console

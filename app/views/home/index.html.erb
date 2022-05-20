@@ -1,8 +1,7 @@
 <% if @user%>
-<div>
-<p>You are logged in as:</p><%= @user.name%><%= button_to "Logout", logout_path, method: :delete %>
-</div>
+
 <br>
+  <% if !@user.organisation %>
  <% @organisation.each do |org| %>
  <div>
    <ul>
@@ -12,6 +11,7 @@
    </ul>
  </div>
  <% end %> 
+
 
  <%=form_with url: org_path do |form|%>
    <div>
@@ -24,6 +24,12 @@
   </div>
   <%= form.submit "Create and Join"%>
  <% end %>
+
+ <% end %>
+
+ <h1> <%= @user.organisation.name%> </h1>
+ <%= link_to "View Shifts", view_shift_path%>
+
 
 
 <% end %>

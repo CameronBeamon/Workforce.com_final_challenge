@@ -17,7 +17,9 @@ Organisation.create(name: "Walmart", hourly_rate: 17.58)
 Organisation.create(name: "Target", hourly_rate: 30.00)
 Organisation.create(name: "Meijers", hourly_rate: 25.00)
 
-Shift.create(user_id: 1, start: "11/23/2019", finish: "05/04/2020", break_length: 30)
-Shift.create(user_id: 1, start: "10/23/2019", finish: "13/04/2020", break_length: 15)
-Shift.create(user_id: 2, start: "09/23/2019", finish: "12/04/2020", break_length: 45)
-Shift.create(user_id: 2, start: "01/23/2019", finish: "09/04/2020", break_length: 30)
+Shift.create(user_id: 1, start: Time.new(2019, 6, 6, 8, 0, 0, "+00:00") , finish: Time.new(2019, 6, 6, 13, 0, 0, "+00:00") , break_length: 30)
+Shift.create(user_id: 1, start: Time.new(2019, 5, 12, 8, 0, 0, "+00:00") , finish: Time.new(2019, 5, 12, 15, 0, 0, "+00:00")  , break_length: 15)
+Shift.create(user_id: 2, start: Time.new(2019, 11, 7, 8, 0, 0, "+00:00") , finish: Time.new(2019, 11, 7, 17, 0, 0, "+00:00") , break_length: 45)
+Shift.create(user_id: 4, start: Time.new(2019, 8, 4, 8, 0, 0, "+00:00") , finish: Time.new(2019, 8, 4, 21, 0, 0, "+00:00") , break_length: 30)
+
+puts "Done!"
