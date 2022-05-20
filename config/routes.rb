@@ -9,7 +9,8 @@ Rails.application.routes.draw do
 
   post "org" => "organisations#create"
 
-  get "view_shift" => "shifts#index"
+  get "view_shift", to: "shifts#index"
+  post "view_shift" => "shifts#create"
 
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

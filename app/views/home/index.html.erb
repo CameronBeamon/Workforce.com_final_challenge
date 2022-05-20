@@ -28,7 +28,7 @@
  <% end %>
 
  <h1> <%= @user.organisation.name%> </h1>
- <%= link_to "View Shifts", view_shift_path%>
+ <%= link_to "View Shifts", view_shift_path(:org => @user.organisation)%>
 
 
 
