@@ -9,7 +9,6 @@ class RegistrationsController < ApplicationController
             password_confirmation: params[:password_confirmation],
           )
           if @user.save
-            # render json: { message: "User created successfully" }, status: :created
             session[:user_id] = @user.id
             redirect_to root_path, status: 200
           else

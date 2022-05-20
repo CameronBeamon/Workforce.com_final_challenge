@@ -4,7 +4,6 @@ class ShiftsController < ApplicationController
         @user = User.find_by(id: session[:user_id])
         @org = params[:org]
         @hourly_rate = params[:hourly_rate].to_i
-        # @all_users = User.where()
     end
     def create
         @user = User.find_by(id: session[:user_id])
@@ -16,8 +15,6 @@ class ShiftsController < ApplicationController
             finish: finish_time,
             break_length: params[:break_length]
         )
-        # @new_shift.save
-        # redirect_to view_shift_path
         if @new_shift.save
             redirect_to view_shift_path
         else

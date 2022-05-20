@@ -2,8 +2,10 @@ class UsersController < ApplicationController
     def update
         @user = User.find_by(id: session[:user_id])
         @user.organisation_id = params[:id]
-        @user.save
-        redirect_to root_path
+        if @user.save
+          redirect_to root_path
+        else 
+            render json: {message: "user did not save"}
     end
     def delete
         user = User.find_by(id: session[:user_id])
@@ -11,7 +13,7 @@ class UsersController < ApplicationController
         if user.save
           redirect_to root_path
         else
-            render json: {message: "nope"}
+            render json: {message: "user did not save"}
         end
     end
 end
