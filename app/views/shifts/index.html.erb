@@ -32,6 +32,21 @@
     <td>   <%= form.submit "Create Shift"%></td>
     <% end %>
   </tr>
+
+
+  <% @user_all_shifts.each do |shift| %>
+  <% if shift != nil %>
+     <tr>
+      <td><%= shift.user.name%></td>
+      <td><%= shift.start.strftime("%Y%M%D")%></td>
+      <td><%= shift.start.strftime("%H%M")%></td>
+      <td><%= shift.finish.strftime("%H%M")%></td>
+      <td><%= shift.break_length%></td>
+      <td><%= (((shift.finish - shift.start) / 60) - shift.break_length) / 60%></td>
+      <td><%= (((shift.finish - shift.start) / 60) - shift.break_length) / 60 * @hourly_rate%></td>
+    </tr>
+    <% end %>
+  <% end %>
 </table>
 <%= link_to "Home", root_path%>
 </div>
