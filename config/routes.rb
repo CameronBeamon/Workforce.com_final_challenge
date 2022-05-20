@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   delete 'logout' => "sessions#delete"
 
   post "org" => "organisations#create"
+  patch "org" => "organisations#update"
+  delete "org" => "organisations#delete"
 
   get "view_shift", to: "shifts#index"
   post "view_shift" => "shifts#create"

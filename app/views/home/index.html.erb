@@ -1,34 +1,44 @@
+
 <% if @user%>
 
-<br>
   <% if !@user.organisation %>
+  <p>You aren't a member of any organisations. Join an existing one or create a new one.</p>
  <% @organisation.each do |org| %>
  <div>
    <ul>
      <li>
-       <%= org.name %> <%= link_to "Edit"%><%= link_to "Join"%>
+       <%= org.name %> <%= link_to "Edit"%><%= button_to "Join", org_path(:id => org.id), method: :patch%>
      </li>
    </ul>
  </div>
  <% end %> 
+ <% end %> 
+
+ <% if !@user.organisation%>
+       <h1>Create organisation</h1>
+    <%=form_with url: org_path do |form|%>
+     <div>
+    <p>Name:</p>
+    <%= form.text_field :name %>
+    </div>
+      <div>
+    <p>Hourly rate: $</p>
+    <%= form.number_field :hourly_rate%>
+    </div>
+    <%= form.submit "Create and Join"%>
+   <% end %>
+   <% end %>
+ 
 
 
- <%=form_with url: org_path do |form|%>
-   <div>
-  <p>Name:</p>
-  <%= form.text_field :name %>
-  </div>
-    <div>
-  <p>Hourly rate: $</p>
-  <%= form.number_field :hourly_rate%>
-  </div>
-  <%= form.submit "Create and Join"%>
+
+
+   <% if @user.organisation %>
+     <h1> <%= @user.organisation.name%> </h1>
+     <%= link_to "View Shifts", view_shift_path(:org => @user.organisation.name)%> <%= button_to "Leave", org_path, method: :delete%>
  <% end %>
 
- <% end %>
 
- <h1> <%= @user.organisation.name%> </h1>
- <%= link_to "View Shifts", view_shift_path(:org => @user.organisation)%>
 
 
 
