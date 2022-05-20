@@ -19,19 +19,10 @@
     <td><%= shift.finish.strftime("%H%M")%></td>
     <td><%= shift.break_length%></td>
     <td><%= (((shift.finish - shift.start) / 60) - shift.break_length) / 60%></td>
-    <td><%= (((shift.finish - shift.start) / 60) - shift.break_length) / 60 * @hourly_rate%></td>
+    <td>$<%= (((shift.finish - shift.start) / 60) - shift.break_length) / 60 * @hourly_rate%></td>
     </tr>
   <% end %>
-  <tr>
-  <%=form_with url: view_shift_path do |form|%>
-    <td><%= @user.name%></td>
-    <td> <%= form.date_field :date %></td>
-    <td> <%= form.time_field :start %></td>
-    <td> <%= form.time_field :finish %></td>
-    <td> <%= form.number_field :break_length %></td>
-    <td>   <%= form.submit "Create Shift"%></td>
-    <% end %>
-  </tr>
+
 
 
   <% @user_all_shifts.each do |shift| %>
@@ -43,10 +34,23 @@
       <td><%= shift.finish.strftime("%H%M")%></td>
       <td><%= shift.break_length%></td>
       <td><%= (((shift.finish - shift.start) / 60) - shift.break_length) / 60%></td>
-      <td><%= (((shift.finish - shift.start) / 60) - shift.break_length) / 60 * @hourly_rate%></td>
+      <td>$<%= (((shift.finish - shift.start) / 60) - shift.break_length) / 60 * @hourly_rate%></td>
     </tr>
     <% end %>
   <% end %>
+
+
+
+  <tr>
+    <%=form_with url: view_shift_path do |form|%>
+      <td><%= @user.name%></td>
+      <td> <%= form.date_field :date %></td>
+      <td> <%= form.time_field :start %></td>
+      <td> <%= form.time_field :finish %></td>
+      <td> <%= form.number_field :break_length %></td>
+      <td>   <%= form.submit "Create Shift"%></td>
+    <% end %>
+  </tr>
 </table>
 <%= link_to "Home", root_path%>
 </div>

@@ -9,8 +9,7 @@ class OrganisationsController < ApplicationController
             hourly_rate: params[:hourly_rate]
         )
         if @organisation.save
-            user.organisation_id = @organisation.id
-            if user.save
+            if user.update_attribute(:organisation_id, @organisation.id)
               redirect_to root_path
             else
                 render json: {message: "user did not save"}
