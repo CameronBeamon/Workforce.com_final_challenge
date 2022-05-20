@@ -7,7 +7,7 @@
  <div>
    <ul>
      <li>
-       <%= org.name %> <%= link_to "Edit"%><%= button_to "Join", org_path(:id => org.id), method: :patch%>
+       <%= org.name %> <%= link_to "Edit", org_path(:id => org.id)%><%= button_to "Join", user_path(:id => org.id), method: :patch%>
      </li>
    </ul>
  </div>
@@ -35,7 +35,7 @@
 
    <% if @user.organisation %>
      <h1> <%= @user.organisation.name%> </h1>
-     <%= link_to "View Shifts", view_shift_path(:org => @user.organisation.name)%> <%= button_to "Leave", org_path, method: :delete%>
+     <%= link_to "View Shifts", view_shift_path(:org => @user.organisation.name, :hourly_rate => @user.organisation.hourly_rate)%> <%= button_to "Leave", user_path, method: :delete%><%= link_to "Edit", org_path(:id => @user.organisation.id)%>
  <% end %>
 
 

@@ -18,8 +18,8 @@
     <td><%= shift.start.strftime("%H%M")%></td>
     <td><%= shift.finish.strftime("%H%M")%></td>
     <td><%= shift.break_length%></td>
-    <td><%= shift.break_length%></td>
-    <td><%= shift.start%></td>
+    <td><%= (((shift.finish - shift.start) / 60) - shift.break_length) / 60%></td>
+    <td><%= (((shift.finish - shift.start) / 60) - shift.break_length) / 60 * @hourly_rate%></td>
     </tr>
   <% end %>
   <tr>

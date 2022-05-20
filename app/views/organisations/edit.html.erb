@@ -1,0 +1,14 @@
+<h1>Edit organisation</h1>
+
+<%=form_tag(org_path(:id => params[:id]), :method => "patch") do |form|%>
+    <div>
+    <p>Name:</p>
+    <%= text_field_tag(:name) %>
+    </div>
+      <div>
+    <p>Hourly rate: $</p>
+    <%= number_field_tag(:hourly_rate, step: 0.5)%>
+    </div>
+    <%= submit_tag("Update")%>
+   <% end %>
+   <%= button_to "Delete", org_path(:id => params[:id]), method: :delete%>

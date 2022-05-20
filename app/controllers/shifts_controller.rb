@@ -3,6 +3,7 @@ class ShiftsController < ApplicationController
         @shift = Shift.where(user_id: session[:user_id])
         @user = User.find_by(id: session[:user_id])
         @org = params[:org]
+        @hourly_rate = params[:hourly_rate].to_i
         # @all_users = User.where()
     end
     def create
