@@ -10,11 +10,9 @@
   </head>
 
   <body>
-  <% if @user %>
-  <div>
-    <p>You are logged in as:</p><%= @user.name%><%= button_to "Logout", logout_path, :class => 'btn btn-link', method: :delete %>
-  </div>
-  <% end %>
+  <%= render 'home/header' %>
+  <div class="container">
     <%= yield %>
+    </div>
   </body>
 </html>

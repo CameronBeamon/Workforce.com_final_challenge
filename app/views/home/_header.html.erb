@@ -1,0 +1,8 @@
+  <% if @user %>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><%= @user.name%></a>
+     <%= button_to "Logout", logout_path, :class => 'btn btn-link', method: :delete %>
+    <%= link_to "Home", root_path%>
+</nav>
+  <% end %>
