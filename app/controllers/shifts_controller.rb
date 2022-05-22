@@ -8,7 +8,9 @@ class ShiftsController < ApplicationController
         @hourly_rate = params[:hourly_rate].to_i
 
         @user_all.each do |user|
-            @user_all_shifts << Shift.find_by(user_id: user.id)
+            if user != @user
+              @user_all_shifts << Shift.find_by(user_id: user.id)
+            end
         end
     end
     def create

@@ -34,8 +34,16 @@
 
 
    <% if @user.organisation %>
-     <h1> <%= @user.organisation.name%> </h1>
-     <%= link_to "View Shifts", view_shift_path(:org => @user.organisation.name, :hourly_rate => @user.organisation.hourly_rate, :id => @user.organisation.id)%> <%= button_to "Leave", user_path, :class => 'btn btn-link', method: :delete%><%= link_to "Edit", org_path(:id => @user.organisation.id)%>
+   <div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= @user.organisation.name%> </h5>
+    <h6 class="card-subtitle mb-2 text-muted">Your Organisation</h6>
+    <p class="card-text">Select what you would like to do</p>
+    <%= link_to "View Shifts", view_shift_path(:org => @user.organisation.name, :hourly_rate => @user.organisation.hourly_rate, :id => @user.organisation.id)%>
+    <%= button_to "Leave", user_path, :class => 'btn btn-link', method: :delete%>
+     <%= link_to "Edit", org_path(:id => @user.organisation.id)%>
+  </div>
+</div>
  <% end %>
 
 
