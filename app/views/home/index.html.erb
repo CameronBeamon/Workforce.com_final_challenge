@@ -2,16 +2,18 @@
 <% if @user%>
 
   <% if !@user.organisation %>
-  <p>You aren't a member of any organisations. Join an existing one or create a new one.</p>
- <% @organisation.each do |org| %>
- <div>
-   <ul>
-     <li>
-       <%= org.name %><%= link_to "Edit", org_path(:id => org.id)%><%= button_to "Join", user_path(:id => org.id), :class => 'btn btn-link', method: :patch%>
-     </li>
-   </ul>
- </div>
- <% end %> 
+  <h3>You aren't a member of any organisations. Join an existing one or create a new one.</h3>
+   <% @organisation.each do |org| %>
+     <div class="card" style="width: 50rem;">
+       <div class="card text-white bg-dark mb-3">
+         <h5 class="card-title"> <%= org.name %></h5>
+         <h6 class="card-subtitle mb-2 text-muted">Organisation</h6>
+         <p class="card-text">Select whether you'd like to join or edit this organisation.</p>
+         <%= link_to "Edit", org_path(:id => org.id)%>
+         <%= button_to "Join", user_path(:id => org.id), :class => 'btn btn-link', method: :patch%>
+       </div>
+     </div>
+     <% end %>
  <% end %> 
 
  <% if !@user.organisation%>
@@ -35,7 +37,7 @@
 
    <% if @user.organisation %>
    <div class="card" style="width: 18rem;">
-  <div class="card-body">
+  <div class="card text-white bg-dark mb-3">
     <h5 class="card-title"><%= @user.organisation.name%> </h5>
     <h6 class="card-subtitle mb-2 text-muted">Your Organisation</h6>
     <p class="card-text">Select what you would like to do</p>
