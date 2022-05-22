@@ -16,6 +16,9 @@ Rails.application.routes.draw do
 
   get "view_shift", to: "shifts#index"
   post "view_shift" => "shifts#create"
+  patch "view_shift" => "shifts#update"
+  delete "view_shift" => "shifts#delete"
+  get "edit_view_shift", to: "shifts#edit"
 
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
